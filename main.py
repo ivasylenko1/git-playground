@@ -1,3 +1,5 @@
+from symbol import continue_stmt
+
 import words_fetcher
 import random
 
@@ -12,6 +14,10 @@ def congratulate_user():
 def is_game_over():
     return guessed == WORDS_TO_WIN or errors == ERRORS_TO_LOSE
 
+def same_word(word, words):
+    if word in words:
+        print("You have already typed that word")
+        return True
 
 def guess_is_valid(candidate):
     for letter in candidate:
@@ -29,6 +35,7 @@ guessed = 0
 errors = 0
 
 guesses = []
+words = []
 
 WORDS_TO_WIN = 5
 ERRORS_TO_LOSE = 3
@@ -46,7 +53,8 @@ while not is_game_over():
 
     if not guess_is_valid(guess):
         continue
-
+    if same_word(guess, words):
+        continue
     if guess in full_list:
         guessed += 1
         guesses.append(guess)

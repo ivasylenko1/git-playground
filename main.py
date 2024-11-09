@@ -2,6 +2,8 @@ from symbol import continue_stmt
 
 import words_fetcher
 import random
+def greetings():
+    print("HEllo how are you")
 
 
 def congratulate_user():
@@ -44,6 +46,8 @@ words = words_fetcher.fetch_words(min_letters=9, max_letters=9)
 full_list = words_fetcher.fetch_words(min_letters=3, max_letters=9)
 word = words[random.randrange(0, len(words))]
 
+
+greetings()
 print(f"Can you make up {WORDS_TO_WIN} words from letters in word provided by me?")
 print(f"Your word is '{word}'")
 
